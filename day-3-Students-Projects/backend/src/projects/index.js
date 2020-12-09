@@ -120,7 +120,7 @@ router.put("/:id", (req, res, next) => {
 		if (error) {
 			res.status(400).send(error.details[0].message);
 		} else {
-			const newProjects = projects.find((p) => p.id !== req.params.id);
+			const newProjects = projects.filter((p) => p.id !== req.params.id);
 
 			const editedProject = {
 				...req.body,

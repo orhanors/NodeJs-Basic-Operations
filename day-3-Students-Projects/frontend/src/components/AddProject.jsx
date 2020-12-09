@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Form, Button, Container } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 /**
  *  - Name
     - Description
@@ -18,51 +19,106 @@ const AddProject = (props) => {
 		liveUrl: "",
 	});
 
+	const [editProject, setEditProject] = useState({
+		studentId: "",
+		name: "",
+		description: "",
+		repoUrl: "",
+		liveUrl: "",
+	});
+
 	useEffect(() => {
 		const newProject = { ...project };
 		newProject.studentId = props.studentId;
 		console.log("newp ", newProject);
 		setProject(newProject);
-	}, [props.studentId]);
+
+		if (props.project) {
+			setEditProject({
+				studentId: props.project.studentId,
+				name: props.project.name,
+				description: props.project.description,
+				repoUrl: props.project.repoUrl,
+				liveUrl: props.project.liveUrl,
+			});
+		}
+	}, [props.studentId, props.project]);
 
 	const fillForm = (e) => {
 		const currentId = e.currentTarget.id;
 
-		const newProject = { ...project };
+		const isEditing = props.project;
+		if (isEditing) {
+			const newProject = { ...editProject };
 
-		newProject[currentId] = e.currentTarget.value;
+			newProject[currentId] = e.currentTarget.value;
 
-		setProject(newProject);
+			setEditProject(newProject);
+		} else {
+			const newProject = { ...project };
+
+			newProject[currentId] = e.currentTarget.value;
+
+			setProject(newProject);
+		}
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		try {
-			const response = await fetch("http://localhost:3001/projects", {
-				method: "POST",
-				body: JSON.stringify(project),
-				headers: {
-					"Content-type": "application/json",
-				},
-			});
+		const isEditing = props.project;
 
-			if (response.ok) {
-				alert("successfully added");
-				setProject({
-					studentId: "",
-					name: "",
-					description: "",
-					repoUrl: "",
-					liveUrl: "",
-				});
-			} else {
+		if (isEditing) {
+			try {
+				const response = await fetch(
+					"http://localhost:3001/projects/" + props.project.id,
+					{
+						method: "PUT",
+						body: JSON.stringify(editProject),
+						headers: {
+							"Content-type": "application/json",
+						},
+					}
+				);
+
+				if (response.ok) {
+					alert("successfully edited");
+				} else {
+					alert("something went wrong");
+				}
+			} catch (err) {
 				alert("something went wrong");
+				console.log(err);
 			}
-		} catch (err) {
-			console.log(err);
+		} else {
+			try {
+				const response = await fetch("http://localhost:3001/projects", {
+					method: "POST",
+					body: JSON.stringify(project),
+					headers: {
+						"Content-type": "application/json",
+					},
+				});
+
+				if (response.ok) {
+					alert("successfully added");
+					setProject({
+						studentId: "",
+						name: "",
+						description: "",
+						repoUrl: "",
+						liveUrl: "",
+					});
+				} else {
+					alert("something went wrong");
+				}
+			} catch (err) {
+				alert("something went wrong");
+				console.log(err);
+			}
 		}
 	};
+	const projectEdit = props.project;
 	return (
 		<div className='project-modal'>
 			<Modal
@@ -78,26 +134,34 @@ const AddProject = (props) => {
 				<Modal.Body>
 					<Container>
 						<Form onSubmit={handleSubmit}>
-							{/* <fieldset disabled> */}
-							<Form.Group>
-								<Form.Label htmlFor='disabledTextInput'>
-									Student ID
-								</Form.Label>
-								<Form.Control
-									id='studentId'
-									placeholder='Disabled input'
-									value={props.studentId}
-									onChange={fillForm}
-								/>
-							</Form.Group>
-							{/* </fieldset> */}
+							<fieldset disabled>
+								<Form.Group>
+									<Form.Label htmlFor='disabledTextInput'>
+										Student ID
+									</Form.Label>
+									<Form.Control
+										id='studentId'
+										placeholder='Disabled input'
+										value={
+											projectEdit
+												? editProject.studentId
+												: props.studentId
+										}
+										onChange={fillForm}
+									/>
+								</Form.Group>
+							</fieldset>
 							<Form.Group controlId='formBasicEmail'>
 								<Form.Label>Project Name</Form.Label>
 								<Form.Control
 									id='name'
 									type='text'
 									placeholder='Name'
-									value={project.name}
+									value={
+										projectEdit
+											? editProject.name
+											: project.name
+									}
 									onChange={fillForm}
 								/>
 							</Form.Group>
@@ -109,7 +173,11 @@ const AddProject = (props) => {
 									as='textarea'
 									rows={3}
 									placeholder='Description'
-									value={project.description}
+									value={
+										projectEdit
+											? editProject.description
+											: project.description
+									}
 									onChange={fillForm}
 								/>
 							</Form.Group>
@@ -120,7 +188,11 @@ const AddProject = (props) => {
 									id='repoUrl'
 									type='url'
 									placeholder='Repo Url'
-									value={project.repoUrl}
+									value={
+										projectEdit
+											? editProject.repoUrl
+											: project.repoUrl
+									}
 									onChange={fillForm}
 								/>
 							</Form.Group>
@@ -131,7 +203,11 @@ const AddProject = (props) => {
 									id='liveUrl'
 									type='url'
 									placeholder='Live Url'
-									value={project.liveUrl}
+									value={
+										projectEdit
+											? editProject.liveUrl
+											: project.liveUrl
+									}
 									onChange={fillForm}
 								/>
 							</Form.Group>
