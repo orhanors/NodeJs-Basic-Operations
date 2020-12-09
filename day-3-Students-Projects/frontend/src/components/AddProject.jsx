@@ -83,6 +83,7 @@ const AddProject = (props) => {
 
 				if (response.ok) {
 					alert("successfully edited");
+					props.isElementChanged();
 				} else {
 					alert("something went wrong");
 				}

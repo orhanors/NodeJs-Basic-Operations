@@ -7,6 +7,7 @@ class StudentDetails extends Component {
 		student: {},
 		showModal: false,
 		projectForEdit: null,
+		changedElementSize: 0,
 	};
 
 	getProjects = async () => {
@@ -70,11 +71,25 @@ class StudentDetails extends Component {
 		this.getProjects();
 		this.getStudent();
 	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.changedElementSize !== this.state.changedElementSize) {
+			console.log("updated");
+			this.getProjects();
+		}
+	}
 	render() {
 		const { student } = this.state;
 		return (
 			<>
 				<AddProject
+					isElementChanged={() =>
+						this.setState({
+							changedElementSize:
+								this.state.changedElementSize + 1,
+						})
+					}
+					changedElementSize={this.state.changedElementSize}
 					project={this.state.projectForEdit}
 					show={this.state.showModal}
 					onHide={() =>
