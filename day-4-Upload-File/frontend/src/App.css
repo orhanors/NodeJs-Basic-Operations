@@ -1,0 +1,27 @@
+body {
+	background-color: rgb(42, 49, 70) !important;
+	color: white;
+}
+
+.form-container {
+	margin-left: 30% !important;
+	margin-right: 30% !important;
+	background-color: rgba(0, 0, 0, 0.836);
+	color: wheat;
+	padding: 2%;
+}
+
+a {
+	color: white;
+	margin-left: 1rem;
+}
+
+a:hover {
+	color: gray;
+}
+
+.modal-content {
+	color: black;
+	margin-left: 20%;
+	margin-right: 20%;
+}
