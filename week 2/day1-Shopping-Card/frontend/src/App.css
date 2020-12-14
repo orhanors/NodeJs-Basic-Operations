@@ -1,0 +1,19 @@
+.product-form {
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: black;
+	color: white;
+	padding: 1rem;
+}
+
+.nav-container a {
+	color: white !important;
+	margin-left: 0.5rem;
+}
+
+.nav-container a:hover {
+	color: rgb(168, 165, 165) !important;
+}
+.modal-content {
+	overflow-x: auto !important;
+}
