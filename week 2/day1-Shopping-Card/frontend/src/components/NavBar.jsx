@@ -10,7 +10,7 @@ export default class NavBar extends Component {
 					<Nav className='mr-auto'>
 						<Link to='/'>Home</Link>
 						<Link to='/products'>Back Office</Link>
-						<Link to='/'>Other</Link>
+						<Link to='/shoppingCart'>Cart</Link>
 					</Nav>
 				</Navbar>
 			</div>

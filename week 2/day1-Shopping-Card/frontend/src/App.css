@@ -17,3 +17,7 @@
 .modal-content {
 	overflow-x: auto !important;
 }
+
+.add-to-cart-icon:hover {
+	cursor: pointer;
+}
