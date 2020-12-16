@@ -18,6 +18,9 @@ const productsJsonFilePath = join(__dirname, "../products/products.json");
 
 const cartValidation = [];
 router.post("/:cartId/add-to-cart/:productId", async (req, res, next) => {
+	// Grab cards.json
+	// Find spesific card from cards.json
+
 	try {
 		let allCards = await readDB(cartJsonFilePath);
 		const card = allCards.find((c) => c._id === req.params.cartId);

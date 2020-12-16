@@ -1,1 +1,79 @@
-[{"_id":"5f6b1991df85440017160811","ownerId":"5f6b1991df8544001716080f","name":"Diego","surname":"Banovaz","products":[{"name":"Amazon Alexa","description":"Home Tech ","brand":"Amazon","price":"345","category":"Tech","_id":"2e866og4kioo7etd","createdAt":"2020-12-14T14:46:48.768Z","imageUrl":"/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866og4kioo7etd.jpg","updatedAt":"2020-12-14T14:46:49.719Z"},{"name":"Nokia 3310","description":"Best phone","brand":"nokia","price":"99","category":"Tech","_id":"42u63s32t4kikd0qp1","createdAt":"2020-12-11T14:22:37.092Z","imageUrl":"C:\\Users\\Jin\\Desktop\\Strive\\Module5-D5-PP-Shopping-Api\\backend\\public\\img\\products\\42u63s32t4kikd0qp1.jpg","updatedAt":"2020-12-11T14:22:39.138Z"}],"total":444},{"_id":"5f6b1991df85440017160812","ownerId":"5f6b1991df8544001716080g","name":"Stefano","surname":"Casasola","products":[],"total":0},{"_id":"5f6b1991df85440017160813","ownerId":"5f6b1991df8544001716080h","name":"Stefano","surname":"Miceli","products":[],"total":0},{"_id":"5f6b1991df85440017160814","ownerId":"5f6b1991df8544001716080i","name":"Riccardo","surname":"Gulin","products":[],"total":0}]
+[
+	{
+		"_id": "5f6b1991df85440017160811",
+		"ownerId": "5f6b1991df8544001716080f",
+		"name": "Diego",
+		"surname": "Banovaz",
+		"products": [
+			{
+				"name": "Amazon Alexa",
+				"description": "Home Tech ",
+				"brand": "Amazon",
+				"price": "345",
+				"category": "Tech",
+				"_id": "2e866og4kioo7etd",
+				"createdAt": "2020-12-14T14:46:48.768Z",
+				"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866og4kioo7etd.jpg",
+				"updatedAt": "2020-12-14T14:46:49.719Z"
+			},
+			{
+				"name": "Nokia 3310",
+				"description": "Best phone",
+				"brand": "nokia",
+				"price": "99",
+				"category": "Tech",
+				"_id": "42u63s32t4kikd0qp1",
+				"createdAt": "2020-12-11T14:22:37.092Z",
+				"imageUrl": "C:\\Users\\Jin\\Desktop\\Strive\\Module5-D5-PP-Shopping-Api\\backend\\public\\img\\products\\42u63s32t4kikd0qp1.jpg",
+				"updatedAt": "2020-12-11T14:22:39.138Z"
+			},
+			{
+				"name": "Wallpaper",
+				"description": "İnspiration",
+				"brand": "Guess",
+				"price": "11",
+				"category": "Home",
+				"_id": "2e866k9lkikgsrqj",
+				"createdAt": "2020-12-11T16:08:23.658Z",
+				"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Module5_D5_PP_Shopping_API/backend/public/img/products/2e866k9lkikgsrqj.jpg",
+				"updatedAt": "2020-12-11T16:08:24.783Z"
+			},
+			{
+				"name": "Versace Women Parfume",
+				"description": "Women parfume by Versace",
+				"brand": "Versace",
+				"price": "121",
+				"category": "Other",
+				"_id": "2e866nsrkioo2ew8",
+				"createdAt": "2020-12-14T14:42:55.591Z",
+				"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866nsrkioo2ew8.jpg",
+				"updatedAt": "2020-12-14T14:42:56.952Z"
+			}
+		],
+		"total": 576
+	},
+	{
+		"_id": "5f6b1991df85440017160812",
+		"ownerId": "5f6b1991df8544001716080g",
+		"name": "Stefano",
+		"surname": "Casasola",
+		"products": [],
+		"total": 0
+	},
+	{
+		"_id": "5f6b1991df85440017160813",
+		"ownerId": "5f6b1991df8544001716080h",
+		"name": "Stefano",
+		"surname": "Miceli",
+		"products": [],
+		"total": 0
+	},
+	{
+		"_id": "5f6b1991df85440017160814",
+		"ownerId": "5f6b1991df8544001716080i",
+		"name": "Riccardo",
+		"surname": "Gulin",
+		"products": [],
+		"total": 0
+	}
+]
