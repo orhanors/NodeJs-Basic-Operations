@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+    title: Homeros Shop API Documentation
+    description: This documentation contains information about homeros shop and endpoints
+    version: 0.1.9
+
+servers:
+    - url: http://localhost:3001
+      description: Main server
+
+tags:
+    - name: products
+      description: Every endpoint related with product
+    - name: carts
+      description: User shopping carts
+
+paths:
+    /products:
+        get:
+            summary: Returns a list of products.
+            description: You can check all products with this endpoint
+            tags:
+                - products
+            responses:
+                "200":
+                    description: A JSON array of products
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+
+        post:
+            summary: Posts a single product object.
+            description: Client can add new product with this endpoint
+            tags:
+                - products
+            responses:
+                "201":
+                    description: Takes single product object and saves it to database
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+    /products/{productId}:
+        get:
+            summary: Returns a product by ID.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+        delete:
+            summary: Edits a product by ID.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+
+        put:
+            summary: Deletes a product by ID.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+
+    /{productId}/reviews:
+        get:
+            summary: Returns a review for a spesific product by product ID.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Review"
+        post:
+            summary: Posts a review to a spesific product by product ID.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Review"
+
+        delete:
+            summary: Deletes a review from spesific product by product ID.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Review"
+
+    /{productId}/image:
+        post:
+            summary: Posts Image to for spesific product.
+            tags:
+                - products
+            parameters:
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+
+    /cart/{cartId}/add-to-cart/{productId}:
+        post:
+            summary: Adds spesific product to spesific cart.
+            tags:
+                - carts
+            parameters:
+                - in: path
+                  name: cartId
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+    /cart/{cartId}:
+        get:
+            summary: Returns whole shopping cart by cart ID.
+            tags:
+                - carts
+            parameters:
+                - in: path
+                  name: cartId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+
+    /cart/{cartId}/remove-from-cart/{productId}:
+        delete:
+            summary: Adds spesific product to spesific cart.
+            tags:
+                - carts
+            parameters:
+                - in: path
+                  name: cartId
+                  required: true
+                  schema:
+                      type: string
+
+                - in: path
+                  name: productId
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Product"
+components:
+    schemas:
+        Product:
+            properties:
+                name:
+                    type: string
+                description:
+                    type: string
+                brand:
+                    type: string
+                price:
+                    type: number
+                category:
+                    type: string
+                imageUrl:
+                    type: string
+            # Both properties are required
+            required:
+                - name
+                - description
+                - brand
+                - price
+        Review:
+            properties:
+                comment:
+                    type: string
+                rate:
+                    type: number
+                elementId:
+                    type: string
+
+            required:
+                - comment
+                - rate
+                - elementId

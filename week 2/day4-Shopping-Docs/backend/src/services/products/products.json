@@ -1,0 +1,79 @@
+[
+	{
+		"name": "Nokia 3310",
+		"description": "Best phone",
+		"brand": "nokia",
+		"price": "99",
+		"category": "Tech",
+		"_id": "42u63s32t4kikd0qp1",
+		"createdAt": "2020-12-11T14:22:37.092Z",
+		"imageUrl": "C:\\Users\\Jin\\Desktop\\Strive\\Module5-D5-PP-Shopping-Api\\backend\\public\\img\\products\\42u63s32t4kikd0qp1.jpg",
+		"updatedAt": "2020-12-11T14:22:39.138Z"
+	},
+	{
+		"name": "Google Pixel",
+		"description": "Good phone",
+		"brand": "Google",
+		"price": "7",
+		"category": "Tech",
+		"_id": "2e866h1nkikb2xgn",
+		"createdAt": "2020-12-11T13:28:19.942Z",
+		"imageUrl": "C:\\Users\\Jin\\Desktop\\Strive\\Module5-D5-PP-Shopping-Api\\backend\\public\\img\\products\\2e866h1nkikb2xgn.jpg",
+		"updatedAt": "2020-12-11T14:38:06.154Z"
+	},
+	{
+		"name": "Wallpaper",
+		"description": "İnspiration",
+		"brand": "Guess",
+		"price": "11",
+		"category": "Home",
+		"_id": "2e866k9lkikgsrqj",
+		"createdAt": "2020-12-11T16:08:23.658Z",
+		"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Module5_D5_PP_Shopping_API/backend/public/img/products/2e866k9lkikgsrqj.jpg",
+		"updatedAt": "2020-12-11T16:08:24.783Z"
+	},
+	{
+		"name": "Macbook Pro",
+		"description": "Apple Macbook Pro",
+		"brand": "Apple",
+		"price": "998",
+		"category": "Tech",
+		"_id": "2e866l6skioo15av",
+		"createdAt": "2020-12-14T14:41:56.502Z",
+		"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866l6skioo15av.jpg",
+		"updatedAt": "2020-12-14T14:41:57.754Z"
+	},
+	{
+		"name": "Versace Women Parfume",
+		"description": "Women parfume by Versace",
+		"brand": "Versace",
+		"price": "121",
+		"category": "Other",
+		"_id": "2e866nsrkioo2ew8",
+		"createdAt": "2020-12-14T14:42:55.591Z",
+		"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866nsrkioo2ew8.jpg",
+		"updatedAt": "2020-12-14T14:42:56.952Z"
+	},
+	{
+		"name": "Rolex Man Watch",
+		"description": "Luxury Man Watch",
+		"brand": "Rolex",
+		"price": "11519",
+		"category": "Other",
+		"_id": "2e866nzrkioo4t19",
+		"createdAt": "2020-12-14T14:44:47.228Z",
+		"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866nzrkioo4t19.jpg",
+		"updatedAt": "2020-12-14T14:44:48.671Z"
+	},
+	{
+		"name": "Amazon Alexa",
+		"description": "Home Tech ",
+		"brand": "Amazon",
+		"price": "345",
+		"category": "Tech",
+		"_id": "2e866og4kioo7etd",
+		"createdAt": "2020-12-14T14:46:48.768Z",
+		"imageUrl": "/home/orhanors/Desktop/STRIVE/PROJECTS/Strive MODULE 5/week 2/day1-Shopping-Card/backend/public/img/products/2e866og4kioo7etd.jpg",
+		"updatedAt": "2020-12-14T14:46:49.719Z"
+	}
+]

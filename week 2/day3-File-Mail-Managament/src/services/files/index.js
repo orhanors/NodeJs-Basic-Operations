@@ -36,13 +36,13 @@ const sendEmail = async (toEmail) => {
 		};
 
 		const result = await sgMail.send(msg);
+
 		console.log("sendgrid result is ", result);
 	} catch (error) {
 		console.log("Email error is", error);
 	}
 };
 filesRouter.post("/", async (req, res, next) => {
-	console.log("possssttt");
 	try {
 		const { error } = validateAttendee(req.body);
 		const email = await Attendee.find({ email: req.body.email }); //it returns an array
@@ -65,7 +65,7 @@ filesRouter.post("/", async (req, res, next) => {
 			try {
 				const result = await newAttendee.save();
 				console.log("post result is here: ", result);
-				//await sendEmail(req.body.email);
+				await sendEmail(req.body.email);
 				res.status(201).send(newAttendee);
 			} catch (error) {
 				console.log(error);
