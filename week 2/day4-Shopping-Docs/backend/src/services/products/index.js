@@ -6,12 +6,16 @@ const router = express.Router();
 const Joi = require("joi");
 const multer = require("multer");
 const { parseString } = require("xml2js");
+const { join } = require("path");
 const publicIp = require("public-ip");
 const axios = require("axios");
 const { promisify } = require("util");
 const { begin } = require("xmlbuilder");
 const { readDB, writeDB } = require("../../lib/utilities");
 const { writeFile } = require("fs-extra");
+const { createReadStream } = require("fs-extra");
+const { Transform } = require("json2csv");
+const { pipeline } = require("stream");
 const upload = multer({});
 
 const productsPublicFile = path.join(__dirname, "../../../public/img/products");
@@ -367,4 +371,39 @@ router.get("/sum/twoPrices", async (req, res, next) => {
 	}
 });
 
+router.get("/export/csv", (req, res, next) => {
+	try {
+		const path = join(__dirname, "products.json");
+		const jsonReadableStream = createReadStream(path);
+
+		const json2csv = new Transform({
+			fields: [
+				"name",
+				"description",
+				"brand",
+				"price",
+				"category",
+				"_id",
+				"createdAt",
+				"imageUrl",
+				"updatedAt",
+			],
+		});
+
+		res.setHeader(
+			"Content-Disposition",
+			"attachment; filename=products.csv"
+		);
+		pipeline(jsonReadableStream, json2csv, res, (err) => {
+			if (err) {
+				console.log(err);
+				next(err);
+			} else {
+				console.log("Done");
+			}
+		});
+	} catch (error) {
+		next(error);
+	}
+});
 module.exports = router;
